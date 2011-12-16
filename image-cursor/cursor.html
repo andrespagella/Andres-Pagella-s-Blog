@@ -1,0 +1,84 @@
+<html>
+	<head>
+        <title>ImageCursor demo.</title>
+		<style type="text/css" media="screen">
+            div {
+                font-family: Arial;
+                font-size: 11px;
+                color: white;
+            }
+			div.white {
+                color: black;
+                float: left;
+                margin: 10px;
+                width: 100px;
+                height: 50px;
+                background-color: white;
+                border: 1px solid black;    
+			}
+
+            div.blue {
+                float: left;
+                margin: 10px;
+                width: 100px;
+                height: 50px;
+                background-color: blue;    
+            }
+
+            div.red {
+                float: left;
+                margin: 10px;
+                width: 100px;
+                height: 50px;
+                background-color: red;    
+            }
+
+            div.green {
+                float: left;
+                margin: 10px;
+                width: 100px;
+                height: 50px;
+                background-color: green;    
+            }
+		</style>
+        <script src="ImageCursor.js" type="text/javascript"></script>
+        <script>
+            window.onload = function() 
+            {
+                var cur = new ImageCursor('img/cursor.png', 'div.white');
+                var cur2 = new ImageCursor('img/animated-cursor.gif');
+                var cur3 = new ImageCursor('normal', 'div.blue');
+                var cur4 = new ImageCursor('https://www.google.com/intl/en_com/images/srpr/logo3w.png', 'div.red');
+                var cur5 = new ImageCursor('none', 'div.green');
+
+                var divs = document.querySelectorAll('div');
+
+                for (var i = 0; i < divs.length; i++) {
+                    divs[i].addEventListener('click', function(e) {
+                        console.log('CLICK: ' + e.target + ' ' + e.target.innerHTML);
+                    });
+                };
+            }
+        </script>
+	</head>
+    <body>
+        BODY (Animated GIF)
+        <div style="clear: both"></div>
+        <div class="white">32bit PNG</div>
+        <div class="white"><a href="#">32bit PNG</a></div>
+        <div class="white">32bit PNG</div>
+        <div style="clear: both"></div>
+        <div class="blue">Default Cursor (System)</div>
+        <div class="blue">Default Cursor (System)</div>
+        <div class="blue">Default Cursor (System)</div>
+        <div style="clear: both"></div>
+        <div class="red">Google Logo (32bit PNG)</div>
+        <div class="red">Google Logo (32bit PNG)</div>
+        <div class="red">Google Logo (32bit PNG)</div>
+        <div style="clear: both"></div>
+        <div class="green">Transparent Cursor (it doesn't use cursor: none)</div>
+        <div class="green">Transparent Cursor (it doesn't use cursor: none)</div>
+        <div class="green">Transparent Cursor (it doesn't use cursor: none)</div>
+        <div style="clear: both"></div>
+    </body>
+</html>
